@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUKIR page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            margin: 0;
+            overflow: hidden;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .profile-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            z-index: 10;
+        }
+        .profile-container:hover {
+            transform: scale(1.05);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ff7675;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #d63031;
+        }
+        .sakura {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: pink;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+        .center-image {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">LOAD FUCKIRR THISUN SITE</div>
+    <marque>LOAD FUCKIRR THISUN</marque>
+    <img class="center-image" src="thisun.jpg" alt="Profile Image">
+    <div class="profile-container">
+        <h2>Profile</h2>
+        <input type="text" id="name" placeholder="Enter your name" />
+        <input type="text" id="email" placeholder="Enter your email" />
+        <input type="text" id="phone" placeholder="Enter your phone number" />
+        <button onclick="saveProfile()">Save</button>
+        <h3>Your Details:</h3>
+        <p id="profileDetails"></p>
+    </div>
+    <script>
+        function saveProfile() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            const profileText = `Name: ${name} <br> Email: ${email} <br> Phone: ${phone}`;
+            document.getElementById('profileDetails').innerHTML = profileText;
+        }
+        
+        function createSakura() {
+            const sakura = document.createElement('div');
+            sakura.classList.add('sakura');
+            document.body.appendChild(sakura);
+            sakura.style.left = Math.random() * window.innerWidth + 'px';
+            sakura.style.animation = `fall ${Math.random() * 5 + 5}s linear infinite`;
+            sakura.style.top = '-20px';
+            setTimeout(() => {
+                sakura.remove();
+            }, 7000);
+        }
+        
+        setInterval(createSakura, 200);
+    </script>
+    <style>
+        @keyframes fall {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</body>
+</html>
